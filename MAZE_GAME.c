@@ -314,6 +314,14 @@ void gameLoop() {
             // Check if the time is up
             if (remainingTime <= 0) {
                 printf("Time's up! You failed to complete the level.\n");
+                // Remove any existing 'P' from the maze
+                 for (int i = 0; i < HEIGHT; i++) {
+                     for (int j = 0; j < WIDTH; j++) {
+                          if (currentMaze[i][j] == PLAYER) {
+                               currentMaze[i][j] = EMPTY;
+                         }
+                        }
+                 }
                 Sleep(2000);
                 return;  // Return to the main menu
             }
@@ -417,4 +425,3 @@ int main() {
     }
     return 0;
 }
-
